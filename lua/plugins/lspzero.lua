@@ -3,9 +3,10 @@ return {
 	event = "BufReadPre",
 
 	dependencies = {
-		{ "folke/neodev.nvim", opts = {} },
 		"hrsh7th/cmp-nvim-lsp",
 		"onsails/lspkind.nvim",
+		"hrsh7th/cmp-buffer",
+		"folke/neodev.nvim",
 		"hrsh7th/nvim-cmp",
 	},
 
@@ -18,17 +19,8 @@ return {
 		-- Extend default capabilities with nvim-cmp
 		local capabilities = cmp_nvim_lsp.default_capabilities();
 
-		local function format()
-			vim.lsp.buf.format({ async = true });
-		end
-
-		local function on_attach(_, buffer)
-			vim.api.nvim_create_autocmd("BufWrite", {
-				callback = format,
-				buffer = buffer,
-			});
-
-			local opts = { noremap = true, silent = true, buffer = buffer };
+		local function on_attach(_, buf)
+			local opts = { noremap = true, silent = true, buffer = buf };
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts);
 			vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts);
@@ -83,6 +75,7 @@ return {
 
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
+				{ name = "buffer" },
 				{ name = "path" },
 			}),
 		})
