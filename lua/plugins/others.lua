@@ -19,12 +19,6 @@ return {
 	},
 
 	{
-		"akinsho/bufferline.nvim",
-		event = "UIEnter",
-		opts = {},
-	},
-
-	{
 		"utilyre/barbecue.nvim",
 		dependencies = { "SmiteshP/nvim-navic" },
 		event = "BufReadPre",
