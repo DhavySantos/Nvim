@@ -8,7 +8,9 @@ return {
 	},
 
 	dependencies = {
+		"mellow-theme/mellow.nvim",
 		"rebelot/kanagawa.nvim",
+		"dgox16/oldworld.nvim",
 	},
 
 	opts = {
