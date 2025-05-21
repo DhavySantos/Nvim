@@ -39,7 +39,11 @@ return {
 		local default = { capabilities = capabilities, on_attach = on_attach };
 
 		lspconfig.rust_analyzer.setup(default);
+		lspconfig.nil_ls.setup(default);
 		lspconfig.lua_ls.setup(default);
+		lspconfig.clangd.setup(default);
+		lspconfig.yamlls.setup(default);
+		lspconfig.cssls.setup(default);
 		lspconfig.ts_ls.setup(default);
 		lspconfig.taplo.setup(default);
 
