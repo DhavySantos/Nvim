@@ -13,12 +13,6 @@ return {
 	},
 
 	{
-		"rmagatti/auto-session",
-		lazy = false,
-		opts = {},
-	},
-
-	{
 		"utilyre/barbecue.nvim",
 		dependencies = { "SmiteshP/nvim-navic" },
 		event = "BufReadPre",
